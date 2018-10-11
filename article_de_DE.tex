@@ -1,0 +1,82 @@
+%% !TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, left=2cm, right=2cm, top=2cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[onehalfspacing]{setspace} %1.5px
+\usepackage{graphicx} % include graphs
+\usepackage{mathptmx} %Times New Roman
+\usepackage{apacite} %APA 6
+\usepackage[hyphens]{url}
+\usepackage{acronym} %Abbreviations
+\usepackage{tocstyle}  % For points in contents
+\usepackage{epigraph}
+\usepackage{pdfpages}
+
+\newcommand\tab[1][0.5cm]{\hspace*{#1}}
+\newcommand*\wildcard[2][5cm]{\vspace*{2cm}\parbox{#1}{\hrulefill\par#2}}
+\newcommand*{\quelle}{% 
+  \footnotesize Source: 
+} 
+
+%Tabellen Abstand der Reihen
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+% Title page
+\input{Text/Titlepage}
+
+% List of contents
+\newpage
+\newtocstyle[KOMAlike][leaders]{alldotted}{} % Pointed lines
+\usetocstyle{alldotted} % Pointed lines
+\tableofcontents
+
+
+% List of Abbreviations
+\newpage
+\section*{List of Abbreviations}
+\addcontentsline{toc}{section}{List of Abbreviations} %Section ohne Nummer im Inhaltsverzeichnis
+\begin{acronym}[WWW]	%The largest abbreviation 
+	\setlength{\itemsep}{-\parsep} % kein Abstand, kompakte Darstellung 
+	
+	\acro{www}[WWW]{World Wide Web} %comand to create a abbr.
+
+\end{acronym}
+
+\newpage
+% List of Figures
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+
+% List of Tables
+\newpage
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+\newpage
+
+% Einleitung
+\input{Text/Introduction}
+
+%Grundlagen
+\input{Text/Basics}
+
+%Empirische Studie
+\input{Text/Study}
+
+%Diskussion
+\input{Text/Discussion}
+
+% Literature
+\newpage
+\bibliographystyle{apacite} % Citations in APA 6
+\bibliography{Literature}
+
+% Include PDF files 
+\section{Appendix}
+%\includepdf[pages=-]{file.pdf}
+
+
+\end{document}
